@@ -11,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -39,10 +40,28 @@
             font-weight: bold;
             color: #1e3f20; /* Doğa yeşili */
             letter-spacing: 2px;
+            text-decoration: none;
         }
 
         .logo span {
             color: #b5893d; /* Altın/Toprak detayı */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #b5893d;
         }
 
         .nav-phone {
@@ -66,8 +85,7 @@
         /* Hero (Giriş) Bölümü */
         .hero {
             height: 100vh;
-            /* Doğa ve dağ manzaralı şık bir villa görseli */
-            background: linear-gradient(rgba(30, 63, 32, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(30, 63, 32, 0.65), rgba(0, 0, 0, 0.45)), url('http://googleusercontent.com/image_collection/image_retrieval/3457311276706049510_0') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -78,18 +96,18 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
         }
 
         .hero p {
             font-size: 1.6rem;
-            max-width: 700px;
+            max-width: 750px;
             margin-bottom: 35px;
             font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
 
         .btn-call {
@@ -111,7 +129,7 @@
 
         /* Özellikler Bölümü */
         .features {
-            padding: 100px 8%;
+            padding: 100px 8% 60px;
             text-align: center;
         }
 
@@ -153,6 +171,113 @@
             font-size: 1.4rem;
         }
 
+        /* SLIDESHOW (GALERİ) BÖLÜMÜ */
+        .gallery-section {
+            padding: 60px 8% 100px;
+            text-align: center;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Slayt Görselleri */
+        .mySlides {
+            display: none;
+            position: relative;
+            height: 550px;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Önceki ve Sonraki Butonları */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            outline: none;
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(30, 63, 32, 0.8);
+        }
+
+        /* Fotoğraf Başlık Yazısı */
+        .slide-text {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 15px 30px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Noktalar (Göstergeler) */
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #1e3f20;
+        }
+
+        /* Slayt Geçiş Efekti */
+        .fade {
+            animation-name: fade;
+            animation-duration: 0.8s;
+        }
+
+        @keyframes fade {
+            from { opacity: .4 }
+            to { opacity: 1 }
+        }
+
         /* İletişim / Randevu Bölümü */
         .contact {
             background-color: #1e3f20;
@@ -182,6 +307,12 @@
             letter-spacing: 1px;
             margin-bottom: 20px;
             display: inline-block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .phone-display:hover {
+            color: white;
         }
 
         /* Footer */
@@ -197,8 +328,9 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
+            .mySlides { height: 350px; }
             .phone-display { font-size: 1.8rem; }
-            .nav-phone { display: none; } /* Mobilde üstteki butonu gizle, alttaki dev buton yetecektir */
+            nav a:not(.nav-phone) { display: none; } /* Mobilde sadece arama butonu kalsın */
         }
     </style>
 </head>
@@ -206,20 +338,25 @@
 
     <!-- Navigasyon -->
     <header>
-        <div class="logo">BOĞAZ <span>VILLA</span></div>
-        <!-- Mobilde kolayca tıklayıp aramaları için telefon linki -->
-        <a href="tel:+905544037167" class="nav-phone">📞 Ara: 0554 403 71 67</a>
+        <a href="#anasayfa" class="logo">BOĞAZ <span>VILLA</span></a>
+        <nav>
+            <a href="#anasayfa">Anasayfa</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#galeri">Galeri</a>
+            <a href="#iletisim">İletişim</a>
+            <a href="tel:+905544037167" class="nav-phone">📞 0554 403 71 67</a>
+        </nav>
     </header>
 
     <!-- Giriş Bölümü (Hero) -->
-    <section class="hero">
+    <section class="hero" id="anasayfa">
         <h1>Boğaz Villa</h1>
         <p>Sakarya Geyve'nin kalbinde, eşsiz doğa manzarası eşliğinde, aile için birebir huzur dolu bir tatil.</p>
         <a href="tel:+905544037167" class="btn-call">Hemen Randevu Al</a>
     </section>
 
     <!-- Özellikler Bölümü -->
-    <section class="features">
+    <section class="features" id="ozellikler">
         <h2 class="section-title">Doğa ile Baş Başa</h2>
         <p class="section-subtitle">Geyve'nin en özel konumunda, ailenizle unutulmaz anılar biriktirin.</p>
         
@@ -239,12 +376,56 @@
         </div>
     </section>
 
+    <!-- SLIDESHOW (GALERİ) BÖLÜMÜ -->
+    <section class="gallery-section" id="galeri">
+        <h2 class="section-title">Villamızdan Kareler</h2>
+        <p class="section-subtitle">Konforu ve doğayı hissedeceğiniz ayrıcalıklı yaşam alanlarımız.</p>
+
+        <div class="slideshow-container">
+            <!-- Slayt 1 -->
+            <div class="mySlides fade">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3457311276706049510_0" alt="Boğaz Villa Geyve Dış Görünüm">
+                <div class="slide-text">Geyve'nin Doğasıyla Bütünleşen Eşsiz Mimari</div>
+            </div>
+
+            <!-- Slayt 2 -->
+            <div class="mySlides fade">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3457311276706049510_1" alt="Boğaz Villa Konforlu İç Mekan">
+                <div class="slide-text">Geniş, Ferah ve Modern Tasarımlı Aile Alanları</div>
+            </div>
+
+            <!-- Slayt 3 -->
+            <div class="mySlides fade">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3457311276706049510_2" alt="Boğaz Villa Doğa Manzaralı Teras">
+                <div class="slide-text">Her Köşesinden Eşsiz Doğa Manzarası</div>
+            </div>
+
+            <!-- Slayt 4 -->
+            <div class="mySlides fade">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3457311276706049510_3" alt="Boğaz Villa Sıcak Dinlenme Köşesi">
+                <div class="slide-text">Ailenizle Keyifli Anlar Biriktireceğiniz Huzurlu Detaylar</div>
+            </div>
+
+            <!-- Butonlar -->
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+
+        <!-- Noktalar -->
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
     <!-- İletişim / Randevu Bölümü -->
-    <section class="contact">
+    <section class="contact" id="iletisim">
         <h2>Rezervasyon ve Detaylı Bilgi</h2>
         <p>Doğanın içindeki bu eşsiz deneyim için yerinizi şimdiden ayırtın. Randevu ve sorularınız için bizi doğrudan arayabilirsiniz.</p>
         
-        <div class="phone-display">+90 554 403 71 67</div>
+        <a href="tel:+905544037167" class="phone-display">+90 554 403 71 67</a>
         <br><br>
         <a href="tel:+905544037167" class="btn-call" style="background-color: #b5893d;">Tıkla ve Ara</a>
     </section>
@@ -253,6 +434,54 @@
     <footer>
         <p>&copy; 2026 Boğaz Villa - Geyve / Sakarya. Tüm Hakları Saklıdır.</p>
     </footer>
+
+    <!-- Slideshow Kontrol Scripti -->
+    <script>
+        let slideIndex = 1;
+        let slideTimer;
+
+        showSlides(slideIndex);
+        resetTimer();
+
+        // İleri/Geri kontrolü
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            resetTimer(); // Manuel tıklandığında süreyi sıfırla
+        }
+
+        // Nokta kontrolleri
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+            resetTimer(); // Manuel tıklandığında süreyi sıfırla
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+
+        // Otomatik Geçiş Sistemi (Her 4 saniyede bir otomatik kaydırır)
+        function resetTimer() {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(function() {
+                plusSlides(1);
+            }, 4000);
+        }
+    </script>
 
 </body>
 </html>
