@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boğaz Villa | Sakarya Geyve'de Eşsiz Doğa Tatili</title>
+    <style>
+        /* Modern CSS Sıfırlama ve Temel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbf7; /* Hafif krem/toprak tonu arka plan */
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Navigasyon Barı */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3f20; /* Doğa yeşili */
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #b5893d; /* Altın/Toprak detayı */
+        }
+
+        .nav-phone {
+            background-color: #1e3f20;
+            color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-phone:hover {
+            background-color: #b5893d;
+        }
+
+        /* Hero (Giriş) Bölümü */
+        .hero {
+            height: 100vh;
+            /* Doğa ve dağ manzaralı şık bir villa görseli */
+            background: linear-gradient(rgba(30, 63, 32, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            max-width: 700px;
+            margin-bottom: 35px;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn-call {
+            padding: 15px 40px;
+            background-color: #b5893d;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-call:hover {
+            background-color: #1e3f20;
+            transform: scale(1.05);
+        }
+
+        /* Özellikler Bölümü */
+        .features {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #1e3f20;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 4px solid #1e3f20;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: #b5893d;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1e3f20;
+            font-size: 1.4rem;
+        }
+
+        /* İletişim / Randevu Bölümü */
+        .contact {
+            background-color: #1e3f20;
+            color: white;
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #e2ecd5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #b5893d;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #112513;
+            color: #a3b8a4;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .phone-display { font-size: 1.8rem; }
+            .nav-phone { display: none; } /* Mobilde üstteki butonu gizle, alttaki dev buton yetecektir */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasyon -->
+    <header>
+        <div class="logo">BOĞAZ <span>VILLA</span></div>
+        <!-- Mobilde kolayca tıklayıp aramaları için telefon linki -->
+        <a href="tel:+905544037167" class="nav-phone">📞 Ara: 0554 403 71 67</a>
+    </header>
+
+    <!-- Giriş Bölümü (Hero) -->
+    <section class="hero">
+        <h1>Boğaz Villa</h1>
+        <p>Sakarya Geyve'nin kalbinde, eşsiz doğa manzarası eşliğinde, aile için birebir huzur dolu bir tatil.</p>
+        <a href="tel:+905544037167" class="btn-call">Hemen Randevu Al</a>
+    </section>
+
+    <!-- Özellikler Bölümü -->
+    <section class="features">
+        <h2 class="section-title">Doğa ile Baş Başa</h2>
+        <p class="section-subtitle">Geyve'nin en özel konumunda, ailenizle unutulmaz anılar biriktirin.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Eşsiz Doğa Manzarası</h3>
+                <p>Göz alabildiğine uzanan yeşillikler ve dağ manzarasıyla güne kuş sesleri eşliğinde başlayın.</p>
+            </div>
+            <div class="card">
+                <h3>Aile İçin Birebir</h3>
+                <p>Geniş bahçesi, güvenli oyun alanları ve korunaklı yapısıyla aileniz için tamamen huzurlu ve izole bir ortam.</p>
+            </div>
+            <div class="card">
+                <h3>Kuzine & Konfor</h3>
+                <p>Doğal yaşam hissiyatını modern lüksle birleştiren iç mimari ve size özel ayrılmış dinlenme alanları.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim / Randevu Bölümü -->
+    <section class="contact">
+        <h2>Rezervasyon ve Detaylı Bilgi</h2>
+        <p>Doğanın içindeki bu eşsiz deneyim için yerinizi şimdiden ayırtın. Randevu ve sorularınız için bizi doğrudan arayabilirsiniz.</p>
+        
+        <div class="phone-display">+90 554 403 71 67</div>
+        <br><br>
+        <a href="tel:+905544037167" class="btn-call" style="background-color: #b5893d;">Tıkla ve Ara</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Boğaz Villa - Geyve / Sakarya. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
